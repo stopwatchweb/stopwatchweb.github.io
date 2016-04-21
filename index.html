@@ -1,4 +1,11 @@
-
+<style media="screen">
+  #hours, #minutes, #seconds {
+    font-size: 120px;
+  }
+  #milli{
+    font-size: 60px;
+  }
+</style>
 Stopwatch-web.com is built by a programmer who is trying to learn how to grow hack, do SEO and
 internet marketing in general. We try to use little to no money to do internet. And we earn purely from
 advertisement as well as blogging. Our journey is documented here.
@@ -19,13 +26,13 @@ Our slogan are "small is good" and "time waits for no one except for God".
 <br>
 <a href="#">Go to Count down timer</a>
 
-<h1 id="hours">0</h1>
-<h1 id="minutes">0</h1>
-<h1 id="seconds">0</h1>
-<h1 id="milli">0</h1>
+<br>
+
+<span id="hours">00</span>: <span id="minutes">00</span> : <span id="seconds">00</span> <span id="milli">0</span>
 
 
 
+<br>
 <button type="button" name="button">Start</button>
 <button type="button" name="button">Stop</button>
 
@@ -73,29 +80,41 @@ Our slogan are "small is good" and "time waits for no one except for God".
 
   function updateHour(){
     if (parseInt(document.getElementById("hours").innerText) > 100) {
-      document.getElementById("hours").innerText = 0;
+      document.getElementById("hours").innerText = "00";
     }
     else {
-      document.getElementById("hours").innerText = parseInt(document.getElementById("hours").innerText) + 1 + ""
+      if (parseInt(document.getElementById("hours").innerText) < 9) {
+        document.getElementById("hours").innerText = "0"+ (parseInt(document.getElementById("hours").innerText) + 1);
+      }else {
+        document.getElementById("hours").innerText = parseInt(document.getElementById("hours").innerText) + 1 + ""
+      }
     }
   }
 
   function updateMinute(){
     if (parseInt(document.getElementById("minutes").innerText) > 58) {
-      document.getElementById("minutes").innerText = 0;
+      document.getElementById("minutes").innerText = "00";
     }
     else {
-      document.getElementById("minutes").innerText = parseInt(document.getElementById("minutes").innerText) + 1 + ""
 
+      if (parseInt(document.getElementById("minutes").innerText) < 9) {
+        document.getElementById("minutes").innerText = "0"+ (parseInt(document.getElementById("minutes").innerText) + 1);
+      }else {
+        document.getElementById("minutes").innerText = parseInt(document.getElementById("minutes").innerText) + 1 + ""
+      }
     }
   }
 
   function updateTime(){
     if (parseInt(document.getElementById("seconds").innerText) > 58) {
-      document.getElementById("seconds").innerText = 0;
+      document.getElementById("seconds").innerText = "00";
       updateMinute()
     }else {
-      document.getElementById("seconds").innerText = parseInt(document.getElementById("seconds").innerText) + 1 + ""
+      if (parseInt(document.getElementById("seconds").innerText) < 9) {
+        document.getElementById("seconds").innerText = "0" + (parseInt(document.getElementById("seconds").innerText) + 1);
+      }else {
+        document.getElementById("seconds").innerText = parseInt(document.getElementById("seconds").innerText) + 1 + ""
+      }
     }
   }
 
@@ -104,7 +123,7 @@ Our slogan are "small is good" and "time waits for no one except for God".
   }
 
   function setSeconds(){
-    if (parseInt(document.getElementById("milli").innerText) > 100) {
+    if (parseInt(document.getElementById("milli").innerText) > 99) {
       document.getElementById("milli").innerText = 0;
     }else {
       document.getElementById("milli").innerText = parseInt(document.getElementById("milli").innerText) + 1 + ""
