@@ -1,0 +1,114 @@
+
+Stopwatch-web.com is built by a programmer who is trying to learn how to grow hack, do SEO and
+internet marketing in general. We try to use little to no money to do internet. And we earn purely from
+advertisement as well as blogging. Our journey is documented here.
+
+Stopwatch-web aims to make money with the least amount of starting fund.
+
+From day 1, Our direct competitor is online-stopwatch.com and we benchmark aggresively with it.
+
+If you have questions or feedback for us, please email to us at stopwatchweb@gmail.com
+
+If you would like to buy us advertise or send us some money, you can do so at ____
+
+For advertisement, please email us at stopwatchweb@gmail.com
+
+Our slogan are "small is good" and "time waits for no one except for God".
+
+<br>
+<br>
+<a href="#">Go to Count down timer</a>
+
+<h1 id="hours">0</h1>
+<h1 id="minutes">0</h1>
+<h1 id="seconds">0</h1>
+<h1 id="milli">0</h1>
+
+
+
+<button type="button" name="button">Start</button>
+<button type="button" name="button">Stop</button>
+
+
+
+<br>
+<br>
+
+
+<button type="button" name="button">1 min</button>
+<button type="button" name="button">2 min</button>
+<button type="button" name="button">3 min</button>
+<button type="button" name="button">4 min</button>
+<button type="button" name="button">5 min</button>
+<button type="button" name="button">6 min</button>
+<button type="button" name="button">7 min</button>
+<button type="button" name="button">8 min</button>
+<button type="button" name="button">9 min</button>
+
+<br>
+
+<button type="button" name="button">10 min</button>
+<button type="button" name="button">20 min</button>
+<button type="button" name="button">30 min</button>
+<button type="button" name="button">40 min</button>
+<button type="button" name="button">50 min</button>
+
+<br>
+
+<button type="button" name="button">1 hour</button>
+<button type="button" name="button">20 min</button>
+<button type="button" name="button">30 min</button>
+<button type="button" name="button">40 min</button>
+<button type="button" name="button">50 min</button>
+
+
+
+
+<script type="text/javascript">
+
+  window.onload = function(e){
+    setInterval(updateTime, 1000);
+    setInterval(setSeconds, 10);
+  }
+
+  function updateHour(){
+    if (parseInt(document.getElementById("hours").innerText) > 100) {
+      document.getElementById("hours").innerText = 0;
+    }
+    else {
+      document.getElementById("hours").innerText = parseInt(document.getElementById("hours").innerText) + 1 + ""
+    }
+  }
+
+  function updateMinute(){
+    if (parseInt(document.getElementById("minutes").innerText) > 58) {
+      document.getElementById("minutes").innerText = 0;
+    }
+    else {
+      document.getElementById("minutes").innerText = parseInt(document.getElementById("minutes").innerText) + 1 + ""
+
+    }
+  }
+
+  function updateTime(){
+    if (parseInt(document.getElementById("seconds").innerText) > 58) {
+      document.getElementById("seconds").innerText = 0;
+      updateMinute()
+    }else {
+      document.getElementById("seconds").innerText = parseInt(document.getElementById("seconds").innerText) + 1 + ""
+    }
+  }
+
+  function setTime(){
+    console.log("hello");
+  }
+
+  function setSeconds(){
+    if (parseInt(document.getElementById("milli").innerText) > 100) {
+      document.getElementById("milli").innerText = 0;
+    }else {
+      document.getElementById("milli").innerText = parseInt(document.getElementById("milli").innerText) + 1 + ""
+    }
+  }
+
+</script>
