@@ -152,7 +152,7 @@ Our slogan are "small is good" and "time waits for no one except for God". -->
 
 
   function updateHour(){
-    if (parseInt(document.getElementById("hours").innerText) > 100) {
+    if (parseInt(document.getElementById("hours").innerText) == 0) {
       document.getElementById("hours").innerText = "00";
     }
     else {
