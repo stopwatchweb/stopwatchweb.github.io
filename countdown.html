@@ -34,22 +34,22 @@ Our slogan are "small is good" and "time waits for no one except for God".
 
 <br>
 <button onclick="startInterval()" type="button" name="button">Start</button>
-<button onclick="stopInterval()" type="button" name="button">Stop</button>
+<button onclick="stopInterval()" type="button" name="button">Pause</button>
 <button onclick="clearCounter()" type="button" name="button">Reset</button>
 
 <br>
 <br>
 
 
-<button type="button" name="button">1 min</button>
-<button type="button" name="button">2 min</button>
-<button type="button" name="button">3 min</button>
-<button type="button" name="button">4 min</button>
-<button type="button" name="button">5 min</button>
-<button type="button" name="button">6 min</button>
-<button type="button" name="button">7 min</button>
-<button type="button" name="button">8 min</button>
-<button type="button" name="button">9 min</button>
+<button onclick="setTiming(0,1,0)" type="button" name="button">1 min</button>
+<button onclick="setTiming(0,2,0)" type="button" name="button">2 min</button>
+<button onclick="setTiming(0,3,0)" type="button" name="button">3 min</button>
+<button onclick="setTiming(0,4,0)" type="button" name="button">4 min</button>
+<button onclick="setTiming(0,5,0)" type="button" name="button">5 min</button>
+<button onclick="setTiming(0,6,0)" type="button" name="button">6 min</button>
+<button onclick="setTiming(0,7,0)" type="button" name="button">7 min</button>
+<button onclick="setTiming(0,8,0)" type="button" name="button">8 min</button>
+<button onclick="setTiming(0,9,0)" type="button" name="button">9 min</button>
 
 <br>
 
@@ -75,12 +75,45 @@ Our slogan are "small is good" and "time waits for no one except for God".
   window.onload = function(e){
     // interval1 = setInterval(updateTime, 1000);
   }
+  function setTiming(hours, minutes, seconds){
+    if (hours == 0) {
+      document.getElementById("hours").innerText = "00";
+    }
+    else if(hours < 11) {
+      document.getElementById("hours").innerText = "0" + hours;
+    }
+    else {
+      document.getElementById("hours").innerText = hours;
+    }
+
+    if (minutes == 0) {
+      document.getElementById("minutes").innerText = "00";
+    }
+    else if(minutes < 11) {
+      document.getElementById("minutes").innerText = "0" + minutes;
+    }
+    else {
+      document.getElementById("minutes").innerText = minutes;
+    }
+
+    if (seconds == 0) {
+      document.getElementById("seconds").innerText = "00";
+    }
+    else if(seconds < 11) {
+      document.getElementById("seconds").innerText = "0" + seconds;
+    }
+    else {
+      document.getElementById("seconds").innerText = seconds;
+    }
+    clearInterval(interval1);
+
+  }
+
 
   function clearCounter(){
     document.getElementById("hours").innerText = "00";
     document.getElementById("minutes").innerText = "05";
     document.getElementById("seconds").innerText = "00";
-    // document.getElementById("milli").innerText = "00";
     clearInterval(interval1);
   }
 
@@ -90,8 +123,6 @@ Our slogan are "small is good" and "time waits for no one except for God".
 
 
   function stopInterval(){
-    // document.getElementById("minutes").innerText = "05";
-    // document.getElementById("seconds").innerText = "00";
     clearInterval(interval1);
   }
 
@@ -137,9 +168,9 @@ Our slogan are "small is good" and "time waits for no one except for God".
     }
   }
 
-  function setTime(){
-    console.log("hello");
-  }
+  // function setTime(){
+  //   console.log("hello");
+  // }
 
   function setSeconds(){
     if (parseInt(document.getElementById("milli").innerText) > 99) {
