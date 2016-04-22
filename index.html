@@ -107,7 +107,7 @@ var isRunning = false;
 
 
   function updateHour(){
-    if (parseInt(document.getElementById("hours").innerText) > 100) {
+    if (parseInt(document.getElementById("hours").innerText) > 1000) {
       document.getElementById("hours").innerText = "00";
     }
     else {
@@ -122,6 +122,7 @@ var isRunning = false;
   function updateMinute(){
     if (parseInt(document.getElementById("minutes").innerText) > 58) {
       document.getElementById("minutes").innerText = "00";
+      updateHour();
     }
     else {
 

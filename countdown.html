@@ -167,6 +167,7 @@ Our slogan are "small is good" and "time waits for no one except for God". -->
   function updateMinute(){
     if (parseInt(document.getElementById("minutes").innerText) == 0) {
       document.getElementById("minutes").innerText = "00";
+      updateHour();
     }
     else {
 
