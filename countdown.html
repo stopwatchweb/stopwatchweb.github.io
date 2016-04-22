@@ -24,19 +24,18 @@ Our slogan are "small is good" and "time waits for no one except for God".
 
 <br>
 <br>
-<a href="/countdown.html">Go to Count down timer</a>
+<a href="/">Go to stopwatch</a>
+
+<h1>Countdown</h1>
 
 <br>
-<h1>Stopwatch</h1>
 
-<span id="hours">00</span>: <span id="minutes">00</span> : <span id="seconds">00</span> <span id="milli">00</span>
+<span id="hours">00</span>: <span id="minutes">05</span> : <span id="seconds">00</span>
 
 <br>
 <button onclick="startInterval()" type="button" name="button">Start</button>
 <button onclick="stopInterval()" type="button" name="button">Stop</button>
-<button onclick="clearCounter()" type="button" name="button">Clear</button>
-
-
+<button onclick="clearCounter()" type="button" name="button">Reset</button>
 
 <br>
 <br>
@@ -75,31 +74,27 @@ Our slogan are "small is good" and "time waits for no one except for God".
 
   window.onload = function(e){
     // interval1 = setInterval(updateTime, 1000);
-    // interval2 = setInterval(setSeconds, 10);
   }
 
   function clearCounter(){
     document.getElementById("hours").innerText = "00";
-    document.getElementById("minutes").innerText = "00";
+    document.getElementById("minutes").innerText = "05";
     document.getElementById("seconds").innerText = "00";
-    document.getElementById("milli").innerText = "00";
+    // document.getElementById("milli").innerText = "00";
     clearInterval(interval1);
-    clearInterval(interval2);
-
   }
 
   function startInterval(){
-    // if (interval1 && interval2 ) {
       interval1 = setInterval(updateTime, 1000);
-      interval2 = setInterval(setSeconds, 10);
-    // }
   }
 
 
   function stopInterval(){
+    document.getElementById("minutes").innerText = "05";
+    document.getElementById("seconds").innerText = "00";
     clearInterval(interval1);
-    clearInterval(interval2);
   }
+
 
 
   function updateHour(){
@@ -107,37 +102,37 @@ Our slogan are "small is good" and "time waits for no one except for God".
       document.getElementById("hours").innerText = "00";
     }
     else {
-      if (parseInt(document.getElementById("hours").innerText) < 9) {
-        document.getElementById("hours").innerText = "0"+ (parseInt(document.getElementById("hours").innerText) + 1);
+      if (parseInt(document.getElementById("hours").innerText) < 11) {
+        document.getElementById("hours").innerText = "0"+ (parseInt(document.getElementById("hours").innerText) - 1);
       }else {
-        document.getElementById("hours").innerText = parseInt(document.getElementById("hours").innerText) + 1 + ""
+        document.getElementById("hours").innerText = parseInt(document.getElementById("hours").innerText) - 1 + ""
       }
     }
   }
 
   function updateMinute(){
-    if (parseInt(document.getElementById("minutes").innerText) > 58) {
+    if (parseInt(document.getElementById("minutes").innerText) == 0) {
       document.getElementById("minutes").innerText = "00";
     }
     else {
 
-      if (parseInt(document.getElementById("minutes").innerText) < 9) {
-        document.getElementById("minutes").innerText = "0"+ (parseInt(document.getElementById("minutes").innerText) + 1);
+      if (parseInt(document.getElementById("minutes").innerText) < 11) {
+        document.getElementById("minutes").innerText = "0"+ (parseInt(document.getElementById("minutes").innerText) - 1);
       }else {
-        document.getElementById("minutes").innerText = parseInt(document.getElementById("minutes").innerText) + 1 + ""
+        document.getElementById("minutes").innerText = parseInt(document.getElementById("minutes").innerText) - 1 + ""
       }
     }
   }
 
   function updateTime(){
-    if (parseInt(document.getElementById("seconds").innerText) > 58) {
-      document.getElementById("seconds").innerText = "00";
+    if (parseInt(document.getElementById("seconds").innerText) == 0) {
+      document.getElementById("seconds").innerText = "59";
       updateMinute()
     }else {
-      if (parseInt(document.getElementById("seconds").innerText) < 9) {
-        document.getElementById("seconds").innerText = "0" + (parseInt(document.getElementById("seconds").innerText) + 1);
+      if (parseInt(document.getElementById("seconds").innerText) < 11) {
+        document.getElementById("seconds").innerText = "0" + (parseInt(document.getElementById("seconds").innerText) - 1);
       }else {
-        document.getElementById("seconds").innerText = parseInt(document.getElementById("seconds").innerText) + 1 + ""
+        document.getElementById("seconds").innerText = parseInt(document.getElementById("seconds").innerText) - 1 + ""
       }
     }
   }
