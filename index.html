@@ -73,12 +73,15 @@ Our slogan are "small is good" and "time waits for no one except for God".
 
 <script type="text/javascript">
 
+var isRunning = false;
+
   window.onload = function(e){
     // interval1 = setInterval(updateTime, 1000);
     // interval2 = setInterval(setSeconds, 10);
   }
 
   function clearCounter(){
+    isRunning = false;
     document.getElementById("hours").innerText = "00";
     document.getElementById("minutes").innerText = "00";
     document.getElementById("seconds").innerText = "00";
@@ -89,14 +92,15 @@ Our slogan are "small is good" and "time waits for no one except for God".
   }
 
   function startInterval(){
-    // if (interval1 && interval2 ) {
+    if(isRunning == false) {
       interval1 = setInterval(updateTime, 1000);
       interval2 = setInterval(setSeconds, 10);
-    // }
+    }
   }
 
 
   function stopInterval(){
+    isRunning = false;
     clearInterval(interval1);
     clearInterval(interval2);
   }
@@ -130,6 +134,7 @@ Our slogan are "small is good" and "time waits for no one except for God".
   }
 
   function updateTime(){
+    isRunning = true;
     if (parseInt(document.getElementById("seconds").innerText) > 58) {
       document.getElementById("seconds").innerText = "00";
       updateMinute()
