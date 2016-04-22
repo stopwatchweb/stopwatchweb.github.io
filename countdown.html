@@ -10,7 +10,7 @@
     font-size: 40px;
   }
 </style>
-Stopwatch-web.com is built by a programmer who is trying to learn how to grow hack, do SEO and
+<!-- Stopwatch-web.com is built by a programmer who is trying to learn how to grow hack, do SEO and
 internet marketing in general. We try to use little to no money to do internet. And we earn purely from
 advertisement as well as blogging. Our journey is documented here.
 
@@ -24,7 +24,7 @@ If you would like to buy us advertise or send us some money, you can do so at __
 
 For advertisement, please email us at stopwatchweb@gmail.com
 
-Our slogan are "small is good" and "time waits for no one except for God".
+Our slogan are "small is good" and "time waits for no one except for God". -->
 
 <br>
 <br>
@@ -94,6 +94,7 @@ Our slogan are "small is good" and "time waits for no one except for God".
     // interval1 = setInterval(updateTime, 1000);
   }
   function setTiming(hours, minutes, seconds){
+    isRunning = false;
     if (hours == 0) {
       document.getElementById("hours").innerText = "00";
     }
@@ -129,6 +130,7 @@ Our slogan are "small is good" and "time waits for no one except for God".
 
 
   function clearCounter(){
+    isRunning = false;
     document.getElementById("hours").innerText = "00";
     document.getElementById("minutes").innerText = "05";
     document.getElementById("seconds").innerText = "00";
