@@ -1,0 +1,237 @@
+<head>
+  <title>Cash timer - Free Internet Countdown Timer</title>
+<meta charset="UTF-8">
+<meta name="description" content="A FREE javascript stopwatch for the internet. Fast & Easy to use. Useful for teachers, instructors and tutors to start a count down or manage time.">
+<meta name="keywords" content="Chess timer, Chess clock, Stopwatch, stopwatch-online, timer, countdown, clock, online, ipad friendly, iphone friendly, classroom timer">
+<meta name="author" content="Stopwatch-web.com">
+</head>
+
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript" src="https://ss.sharethis.com/loader.js"></script>
+<script src="//load.sumome.com/" data-sumo-site-id="6f03f84895922521b76f6a4965023ce25bd5dcdbbae2282b0b92821ea95d9d2b" async="async"></script>
+
+<title>Cash timer</title>
+
+<style media="screen">
+  #hours, #minutes, #seconds {
+    font-size: 120px;
+  }
+  #milli{
+    font-size: 60px;
+  }
+
+  .big_button{
+    font-size: 40px;
+  }
+</style>
+<!-- Stopwatch-web.com is built by a programmer who is trying to learn how to grow hack, do SEO and
+internet marketing in general. We try to use little to no money to do internet. And we earn purely from
+advertisement as well as blogging. Our journey is documented here.
+
+Stopwatch-web aims to make money with the least amount of starting fund.
+
+From day 1, Our direct competitor is online-stopwatch.com and we benchmark aggresively with it.
+
+If you have questions or feedback for us, please email to us at stopwatchweb@gmail.com
+
+If you would like to buy us advertise or send us some money, you can do so at ____
+
+For advertisement, please email us at stopwatchweb@gmail.com
+
+Our slogan are "small is good" and "time waits for no one except for God". -->
+
+<br>
+<br>
+<a href="/">Go to stopwatch</a>
+<a href="/countdown.html">Go to countdown timer</a>
+<a href="/timer-iphone.html">Go to timer for iPhone</a>
+<a href="/timer-ipad.html">Go to timer for iPad</a>
+
+<h1>Cash timer</h1>
+
+<br>
+
+<span id="hours">00</span>: <span id="minutes">05</span> : <span id="seconds">00</span>
+
+<br>
+<button onclick="startInterval()" type="button" name="button">Start</button>
+<button onclick="stopInterval()" type="button" name="button">Pause</button>
+<button onclick="clearCounter()" type="button" name="button">Reset to 5 minutes</button>
+
+<br>
+<br>
+
+<button class="big_button" onclick="keyInNumber(0)" type="button" name="button">0 </button>
+<button class="big_button" onclick="keyInNumber(1)" type="button" name="button">1 </button>
+<button class="big_button" onclick="keyInNumber(2)"  type="button" name="button">2 </button>
+<button class="big_button" onclick="keyInNumber(3)" type="button" name="button">3 </button>
+<button class="big_button" onclick="keyInNumber(4)" type="button" name="button">4 </button>
+<button class="big_button" onclick="keyInNumber(5)" type="button" name="button">5 </button>
+<button class="big_button" onclick="keyInNumber(6)" type="button" name="button">6 </button>
+<button class="big_button" onclick="keyInNumber(7)" type="button" name="button">7 </button>
+<button class="big_button" onclick="keyInNumber(8)" type="button" name="button">8 </button>
+<button class="big_button" onclick="keyInNumber(9)" type="button" name="button">9 </button>
+
+<br>
+<br>
+
+
+<button onclick="setTiming(0,1,0)" type="button" name="button">1 min</button>
+<button onclick="setTiming(0,2,0)" type="button" name="button">2 min</button>
+<button onclick="setTiming(0,3,0)" type="button" name="button">3 min</button>
+<button onclick="setTiming(0,4,0)" type="button" name="button">4 min</button>
+<button onclick="setTiming(0,5,0)" type="button" name="button">5 min</button>
+<button onclick="setTiming(0,6,0)" type="button" name="button">6 min</button>
+<button onclick="setTiming(0,7,0)" type="button" name="button">7 min</button>
+<button onclick="setTiming(0,8,0)" type="button" name="button">8 min</button>
+<button onclick="setTiming(0,9,0)" type="button" name="button">9 min</button>
+
+<br>
+
+<button onclick="setTiming(0,10,0)" type="button" name="button">10 min</button>
+<button onclick="setTiming(0,20,0)" type="button" name="button">20 min</button>
+<button onclick="setTiming(0,30,0)" type="button" name="button">30 min</button>
+<button onclick="setTiming(0,40,0)" type="button" name="button">40 min</button>
+<button onclick="setTiming(0,50,0)" type="button" name="button">50 min</button>
+
+<br>
+
+<button onclick="setTiming(1,0,0)" type="button" name="button">1 hour</button>
+<button onclick="setTiming(2,0,0)" type="button" name="button">2 hours</button>
+<button onclick="setTiming(3,0,0)" type="button" name="button">3 hours</button>
+<button onclick="setTiming(4,0,0)" type="button" name="button">4 hours</button>
+<button onclick="setTiming(5,0,0)" type="button" name="button">5 hours</button>
+
+
+
+
+<script type="text/javascript">
+  var isRunning = false;
+  window.onload = function(e){
+    // interval1 = setInterval(updateTime, 1000);
+  }
+  function setTiming(hours, minutes, seconds){
+    isRunning = false;
+    if (hours == 0) {
+      document.getElementById("hours").innerText = "00";
+    }
+    else if(hours < 11) {
+      document.getElementById("hours").innerText = "0" + hours;
+    }
+    else {
+      document.getElementById("hours").innerText = hours;
+    }
+
+    if (minutes == 0) {
+      document.getElementById("minutes").innerText = "00";
+    }
+    else if(minutes < 11) {
+      document.getElementById("minutes").innerText = "0" + minutes;
+    }
+    else {
+      document.getElementById("minutes").innerText = minutes;
+    }
+
+    if (seconds == 0) {
+      document.getElementById("seconds").innerText = "00";
+    }
+    else if(seconds < 11) {
+      document.getElementById("seconds").innerText = "0" + seconds;
+    }
+    else {
+      document.getElementById("seconds").innerText = seconds;
+    }
+    clearInterval(interval1);
+
+  }
+
+
+  function clearCounter(){
+    isRunning = false;
+    document.getElementById("hours").innerText = "00";
+    document.getElementById("minutes").innerText = "05";
+    document.getElementById("seconds").innerText = "00";
+    clearInterval(interval1);
+  }
+
+  function startInterval(){
+    if (isRunning == false){
+      interval1 = setInterval(updateTime, 1000);
+    }
+  }
+
+
+  function stopInterval(){
+    isRunning = false;
+    clearInterval(interval1);
+  }
+
+
+
+  function updateHour(){
+    if (parseInt(document.getElementById("hours").innerText) == 0) {
+      document.getElementById("hours").innerText = "00";
+    }
+    else {
+      if (parseInt(document.getElementById("hours").innerText) < 11) {
+        document.getElementById("hours").innerText = "0"+ (parseInt(document.getElementById("hours").innerText) - 1);
+      }else {
+        document.getElementById("hours").innerText = parseInt(document.getElementById("hours").innerText) - 1 + ""
+      }
+    }
+  }
+
+  function updateMinute(){
+    if (parseInt(document.getElementById("minutes").innerText) == 0) {
+      if(parseInt(document.getElementById("hours").innerText) > 0){
+        document.getElementById("minutes").innerText = "59";
+      }
+      else if(parseInt(document.getElementById("hours").innerText) == 0){
+        document.getElementById("minutes").innerText = "00";
+      }
+      updateHour();
+    }
+    else {
+
+      if (parseInt(document.getElementById("minutes").innerText) < 11) {
+        document.getElementById("minutes").innerText = "0"+ (parseInt(document.getElementById("minutes").innerText) - 1);
+      }else {
+        document.getElementById("minutes").innerText = parseInt(document.getElementById("minutes").innerText) - 1 + ""
+      }
+    }
+  }
+
+  function updateTime(){
+    isRunning = true;
+    if (parseInt(document.getElementById("seconds").innerText) == 0) {
+      document.getElementById("seconds").innerText = "59";
+      updateMinute()
+    }else {
+      if (parseInt(document.getElementById("seconds").innerText) < 11) {
+        document.getElementById("seconds").innerText = "0" + (parseInt(document.getElementById("seconds").innerText) - 1);
+      }else {
+        document.getElementById("seconds").innerText = parseInt(document.getElementById("seconds").innerText) - 1 + ""
+      }
+    }
+  }
+
+  // function setTime(){
+  //   console.log("hello");
+  // }
+
+  function setSeconds(){
+    if (parseInt(document.getElementById("milli").innerText) > 99) {
+      document.getElementById("milli").innerText = 0;
+    }else {
+      document.getElementById("milli").innerText = parseInt(document.getElementById("milli").innerText) + 1 + ""
+    }
+  }
+
+</script>
+
+<script type="text/javascript">stLight.options({publisher: "148c8a68-7575-4dd5-b5f2-07464f99e66d", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+<script>
+var options={ "publisher": "148c8a68-7575-4dd5-b5f2-07464f99e66d", "position": "right", "ad": { "visible": false, "openDelay": 5, "closeDelay": 0}, "chicklets": { "items": ["facebook", "twitter", "linkedin", "pinterest", "email", "sharethis"]}};
+var st_hover_widget = new sharethis.widgets.hoverbuttons(options);
+</script>
